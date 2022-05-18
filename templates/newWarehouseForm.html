@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<h1>
+    Welcome to MyLogics - Please fill the form to enter a warehouse
+
+</h1>
+<div>
+ 
+    <form action="/add_warehouse" method="POST">
+        Location: 
+        <p><input type="text" name="warehouse_location"></p>
+        <h3> Add an inventory to this warehouse:</h3>
+        Inventory item:
+        <p><input type="text" name="inventory_item"></p>
+        Quantity:
+        <p><input type="text" name="quantity"></p>
+        manufacturer:
+        <p><input type="text" name="manufacturer"></p>
+        Comments:
+        <p><input type="text" name="comments"></p>
+
+
+
+
+
+
+        <button type = 'submit' name = "add_warehouse">Add Warehouse</button>
+
+    </form>
+</div>
+
+
+
+
+{% endblock %}

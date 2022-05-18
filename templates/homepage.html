@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<h1>
+    Welcome to MyLogics
+
+</h1>
+<ul>
+    <h3>Please select a warehouse to view its inventory</h3>
+        {% for warehouse in warehouses %}
+        <li><a href="/warehouses/{{ warehouse.warehouse_id }}">{{ warehouse.location }}</a></li>
+        
+      
+          
+        {% endfor %}    
+</ul>
+
+<button><a href="/new_warehouse_form">Add Warehouse</button>
+
+
+
+{% endblock %}
+
+

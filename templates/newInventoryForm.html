@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<h1>
+    Welcome to MyLogics - Please fill the form to enter a Inventory
+
+</h1>
+<div>
+ 
+    <form action="/add_inventory" method="POST">
+        Location: 
+        <p><input type="text" name="add_inventory"></p>
+        <button type = 'submit' name = "add_inventory">Add Inventory</button>
+    </form>
+</div>
+
+
+
+
+{% endblock %}
