@@ -1,11 +1,11 @@
-"""CRUD operations."""
+"""CRUD operation helper functions"""
 
 from model import db, Inventory, Warehouse, connect_to_db
 
-def create_inventory(inventory_item, quantity, manufacturer, created_at, updated_at, comments):
+def create_inventory(warehouse_id, inventory_item, quantity, manufacturer, created_at, updated_at, comments):
     """Create and return a new Inventory."""
 
-    inventory = Inventory(inventory_item =inventory_item, quantity = quantity, manufacturer = manufacturer, created_at = created_at, updated_at = updated_at, comments = comments)
+    inventory = Inventory(warehouse_id = warehouse_id, inventory_item =inventory_item, quantity = quantity, manufacturer = manufacturer, created_at = created_at, updated_at = updated_at, comments = comments)
 
     db.session.add(inventory)
     db.session.commit()
@@ -22,25 +22,32 @@ def create_warehouse(location,created_at, updated_at):
 
     return warehouse
 
-# def update_inventory()
+def validate_inventory(warehouse_id, inventory_item, quantity, manufacturer, created_at, updated_at, comments):
+    """Validate the input in the create inventory form"""
+
+    if  warehouse_id == "" or \
+        inventory_item == "" or \
+        quantity == "" or \
+        manufacturer == "" or \
+        not warehouse_id.isdigit() or \
+        not quantity.isdigit():
+            return False
+    else:
+        return True
 
 
-def display_inventory():
-    """Display all inventory"""
+def get_warehouse_by_id(warehouse_id):
+    """Get warehouse by id"""
 
-    return Inventory.query.all()
+    return Warehouse.query.get(warehouse_id)
 
-def display_warehouses():
-    """Display all warehouses"""
-
-    return Warehouse.query.all()
-
-def get_warehouse_by_id():
-
-def get_inventory_by_warehouse_id(warehouse_id):
+def get_inventory_by_id(inventory_id):
     """Get inventory by warehouse"""
 
-    return Inventory.query.get(warehouse_id)
+    return Inventory.query.get(inventory_id)
+
+
+
 
 
 if __name__ == '__main__':

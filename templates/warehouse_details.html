@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %} {{ warehouse.location }} - Details{% endblock %}
+
+{% block body %}
+<h1>{{ warehouse.location }}</h1>
+<ul>
+<p>
+{% for inventory in warehouse.inventory %}
+ <li> <h4>Item Code: {{ inventory.inventory_id }}</h4> </li>
+ <li> Name: {{ inventory.inventory_item }}</li>
+ <li> Manufacturer: {{ inventory.manufacturer }}</li>
+ <li> Quantity: {{ inventory.quantity }}</li>
+ <li> Comments about the Item: {{ inventory.comments }}</li>
+                                                  
+ {% endfor %} 
+</p>
+</ul> 
+
+{% endblock %}

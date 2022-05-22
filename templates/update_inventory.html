@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}Update Inventory{% endblock %}
+{% block body %}
+
+
+<div class="container">
+    <div class = "form-group">
+    <form action="/update_inventory/{{ inventory_to_update.inventory_id }}" method="POST">
+        <h3> Update Inventory</h3>
+        Inventory item:
+        <p><input type="text" name="inventory_item" value = {{inventory_to_update.inventory_item}}></p>
+        Quantity:
+        <p><input type="text" name="quantity" value = {{inventory_to_update.quantity}}></p>
+        Manufacturer:
+        <p><input type="text" name="manufacturer" value = {{inventory_to_update.manufacturer}}></p>
+        Comments:
+        <p><input type="text" name="comments" value = {{inventory_to_update.comments}}></p>
+        Warehouse:
+        {% if warehouses %}
+        <select name = "warehouse_id" id = "warehouse_id" value = {{inventory_to_update.warehouse_id}}>
+            {% for warehouse in warehouses %}
+            
+            <option value = {{warehouse.warehouse_id}}  id = "warehouse_id" name = "warehouse_id">{{warehouse.location}}</option>
+           
+            {% endfor %}
+        {% endif %}
+        </select>
+        <br>
+        <small>Select from an existing warehouse or Add your own warehouse location</small>
+        <br><br>
+        New Warehouse Location:
+        <p><input type="text" name="new_warehouse" ></p>
+        
+        <br>
+        <br>
+        <button class = "btn btn-primary" type = 'submit'>Submit</button>
+    </form>
+</div>
+</div>
+
+
+
+
+{% endblock %}

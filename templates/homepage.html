@@ -1,24 +1,102 @@
 {% extends 'base.html' %}
 {% block body %}
 
-<h1>
-    Welcome to MyLogics
+<div class = "container">
+    <br>
+    <br>
+    <h3>Active Inventory</h3>
+    {% if inventories %}
+    <table class = "table">
+    <thead>
+        <tr>
+            <th>Item</th>
+            <th>Manufacturer</th>
+            <th>Quantity </th>
+            <th>Comment</th>
+            <th>Created at:</th>
+            <th>Last Updated_at:</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for inventory in inventories %}
+        <tr>
+            <td>{{ inventory.inventory_item }}</td>
+            <td>{{ inventory.manufacturer }}</td>
+            <td>{{ inventory.quantity }}</td>
+            <td>{{ inventory.comments }}</td>
+            <td>{{ inventory.created_at }}</td>
+            <td>{{ inventory.updated_at }}</td>
+            <td>
+                <form action = "/update_inventory/{{ inventory.inventory_id }}" method="GET">
+                    <button class = "btn btn-primary">Update</button>
+                </form>
+               
+            </td>
+            <td>
+                <form action = "/delete_inventory/{{ inventory.inventory_id }}" method="POST" value = {{inventory.inventory_id}} name = "deleted">
+                    <button class = "btn btn-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                            <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                            <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                        </svg>    
+                    </button>
+                </form>
+               
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+    {% endif %}
 
-</h1>
-<ul>
-    <h3>Please select a warehouse to view its inventory</h3>
-        {% for warehouse in warehouses %}
-        <li><a href="/warehouses/{{ warehouse.warehouse_id }}">{{ warehouse.location }}</a></li>
-        
-      
-          
-        {% endfor %}    
-</ul>
+    <div class ="text-center">
+        <a href = "/new_inventory_form" class = "btn btn-primary btn-block">Add Inventory</a>
+    </div>
+</div>
+ 
+<div class = "container">
+    <h3> Current Warehouse </h3>
+    {% if warehouses %}
+    <table class = "table" >
+    <thead>  
+        <tr>
+            <th>Warehouse ID</th>
+            <th>Location</th>
+            <th>Created at</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+            {% for warehouse in warehouses %}
+            <tr>
+                <td> {{ warehouse.warehouse_id }}</td>
+            <td>
+                {{ warehouse.location }}</a>
+            </td> 
+            <td>
+                {{ warehouse.created_at }}
+            </td> 
+            <td>
+                <form action = "/warehouses/{{ warehouse.warehouse_id }}" method="GET">
+                    <button class = "btn btn-primary"> View Inventory</button>
+                </form>
+               
+            </td>
 
-<button><a href="/new_warehouse_form">Add Warehouse</button>
-
-
-
+        </tr> 
+            {% endfor %}    
+    </tbody>
+    </table>
+    
+    {% endif %}
+    
+    <div class ="text-center">
+        <a href = "/new_warehouse_form" class = "btn btn-primary btn-block">Add Warehouse</a>
+    </div>
+    
+    
+</div>
+    
 {% endblock %}
 
 

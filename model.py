@@ -24,11 +24,10 @@ class Inventory(db.Model):
     #shipment_status = db.Column(db.Text, nullable=True)
     #transportation_method =  db.Column(db.Text, default=None, nullable=True) (if we wanted to check if the package is being delivered through motor vehicle/airplane?)
 
-    warehouse = db.relationship("Warehouse", backref= "inventory")
+    # warehouse = db.relationship("Warehouse", backref= "inventory")
 
     def __repr__(self):
         return f"<Inventory inventory_id={self.inventory_id}>"
-
 
 
 class Warehouse(db.Model):
@@ -38,13 +37,12 @@ class Warehouse(db.Model):
 
 
     warehouse_id = db.Column(db.Integer, autoincrement=True, primary_key=True, nullable=False)
-   
     location = db.Column(db.String, nullable=False)
     created_at = db.Column(db.DateTime, nullable=False)
     updated_at = db.Column(db.DateTime, nullable=False)
     #capacity = db.Column(db.Integer)
       
-
+    inventory = db.relationship("Inventory", backref= "warehouse")
     
 
     def __repr__(self):
@@ -67,58 +65,4 @@ if __name__ == "__main__":
     connect_to_db(app)
 
 
-
-# class Comment(db.Model):
-#     """A customer.""" 
-
-#     __tablename__ = "comments"  
-
-#     comment_id = db.Column(db.Integer, autoincrement=True, primary_key=True, nullable=False)
-#     user_id = db.Column(db.Integer, db.ForeignKey("users.user_id"), nullable = False)
-#     inventory_id = db.Column(db.Integer, db.ForeignKey("inventory.inventory_id"), nullable = False)
-#     comment = db.Column(db.Text)
-#     created_at = db.Column(db.Datetime, nullable=False)
-#     updated_at = db.Column(db.Datetime, nullable=False)
-
-#     def __repr__(self):
-#         return f"<User user_id={self.customer_id} name={self.name}>"
-
-
-# class sending_inventory(db.Model):
-#     """Inventory dropped off"""
-
-#     __tablename__ = "sending_inventories"
-
-#     sending_inventory_id = db.Column(db.Integer, autoincrement=True, primary_key=True, nullable=False)
-#     customer_id = db.Column(db.Integer, db.ForeignKey("users.user_id"), nullable = False)
-#     inventory_id = db.Column(db.Integer, db.ForeignKey("inventories.inventory_id"), nullable = False)
-#     created_at = db.Column(db.Datetime, nullable=False)
-
-#     customer = db.relationship("Customer", backref= "sending_inventories")
-#     inventory = db.relationship("Inventory", backref = "sending_inventories")
-
-#     def __repr__(self):
-#         return f"<dropoff_inventory id={self.sending_inventory_id}>"
-
-
-
-
-
-# class recieving_inventory(db.Model):
-#     """Inventory picked up for delivery"""
-
-#     __tablename__ = "recieving_inventories"
-
-#     recieving_inventory_id = db.Column(db.Integer, autoincrement=True, primary_key=True, nullable=False)
-#     user_id = db.Column(db.Integer, db.ForeignKey("users.user_id"), nullable = False)
-#     inventory_id = db.Column(db.Integer, db.ForeignKey("inventories.inventory_id"), nullable = False)
-#     created_at = db.Column(db.Datetime, nullable=False)
-
-
-#     customer = db.relationship("Customer", backref= "recieving_inventories")
-#     inventory = db.relationship("Inventory", backref = "recieving_inventories")
-
-
-#     def __repr__(self):
-#         return f"<pickup_inventory id={self.recieving_inventory_id}>"
 

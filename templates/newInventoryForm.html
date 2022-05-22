@@ -1,16 +1,29 @@
 {% extends 'base.html' %}
 {% block body %}
 
-<h1>
-    Welcome to MyLogics - Please fill the form to enter a Inventory
 
-</h1>
 <div>
  
     <form action="/add_inventory" method="POST">
-        Location: 
-        <p><input type="text" name="add_inventory"></p>
-        <button type = 'submit' name = "add_inventory">Add Inventory</button>
+        <h3> Add inventory to a warehouse:</h3>
+        Inventory item:
+        <p><input type="text" name="inventory_item"></p>
+        Quantity:
+        <p><input type="text" name="quantity"></p>
+        Manufacturer:
+        <p><input type="text" name="manufacturer"></p>
+        Comments:
+        <p><input type="text" name="comments"></p>
+        Warehouse:
+        <select name = "warehouse_id" id = "warehouse_id">
+            {% for warehouse in warehouses %}
+            
+            <option value = {{warehouse.warehouse_id}}  id = "warehouse_id" name = "warehouse_id">{{warehouse.location}}</option>
+           
+            {% endfor %}
+            
+        </select>
+        <button class = "btn btn-primary" type = 'submit'>Submit</button>
     </form>
 </div>
 
