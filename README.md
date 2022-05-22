@@ -37,7 +37,7 @@ It also lets the user create an additional warehouse and add inventory to that s
 </p>
 </details>
 
-<details><summary>Delete Inventory , methods = [GET]</summary>
+<details><summary>Delete Inventory , methods = [DELETE]</summary>
 <p>
 
 #### Users are able to delete an inventory from the database. 
@@ -72,7 +72,7 @@ Please be sure to have Python 3.6 and PostgreSQL downloaded before you clone thi
 On local machine, go to a directory where you want to work and clone Over The Mood repository:
 
 ```
-$ git clone https://github.com/mahafatima14/hb-project-my-pantry.git
+$ git clone https://github.com/mahafatima14/Shopify_developer_tech_challenge.git
 ```
 
 Create a virtual environment:
@@ -138,5 +138,12 @@ I chose to work in Python along with its web framework Flask. I chose Flask beca
 MyLogics is created by Maha Fatima, a full stack Software engineer in the Bay Area, San Francisco. She comes from a non-traditional background, she completed her Hon. BSc in Biomedical sciences from the University of Waterloo and throughout her degree and after, she worked at the pharmacy and labs as a chemist. She is a career-driven individual who went on to get her PMP and scrum master certifications. 
 Upon her move to California, she got exposed to the tech world and enrolled in Hackbright's Intro to Python 101 course and fell in love with the problem solving, utilizing software, and automation to create solutions. She went on to complete Hackbright's prep course and enrolled in Hackbrights Software engineering fellowship program - April 2022.
 
-<img src="static/img/contactcard.jpg">
+<img src="static/img/mycontactcard.png">
 
+<p><a href="https://www.linkedin.com/in/maha-fatima-rizvi/">
+  <img
+    alt="LinkedIn"
+    src="https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white"
+  />
+</a>
+</p>
