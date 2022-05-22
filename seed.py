@@ -15,24 +15,6 @@ model.db.create_all()
 model.connect_to_db(server.app) 
 model.db.create_all()
 
-# def load_customers():
-#     """Customers"""
-#     #seed the first user in the database and add to the session:
-#     first_customer = model.Customer(name = "Ron Weasley", email = "test1@test.test", address = "123 Taylor Way", phone_number = "12345678")
-#     model.db.session.add(first_customer)
-
-#     #seed the second user to the database and add to the session:
-#     second_customer= model.Customer(name = "Harry Potter", email = "test2@test.test", address = "123 David Way", phone_number = "12345676")
-#     model.db.session.add(second_customer)
-
-#     third_customer= model.Customer(name = "Hermoine G", email = "test3@test.test", address = "123 Ally Way", phone_number = "12345679")
-#     model.db.session.add(third_customer)
-
-#     #commit users to the database
-#     model.db.session.commit()
-
-
-# load_customers()
 
 def load_warehouses():
     """Sample data for warehouses"""

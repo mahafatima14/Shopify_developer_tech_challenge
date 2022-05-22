@@ -18,7 +18,7 @@
         <select name = "warehouse_id" id = "warehouse_id">
             {% for warehouse in warehouses %}
             
-            <option value = {{warehouse.warehouse_id}}  id = "warehouse_id" name = "warehouse_id">{{warehouse.location}}</option>
+            <option value = {{warehouse.warehouse_id}}  id = "warehouse_id" name = "warehouse_id">{{warehouse.warehouse_id}} | {{warehouse.location}}</option>
            
             {% endfor %}
             

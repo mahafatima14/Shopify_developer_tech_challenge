@@ -37,7 +37,7 @@ It also lets the user create an additional warehouse and add inventory to that s
 </p>
 </details>
 
-<details><summary>Delete Inventory , methods = [DELETE]</summary>
+<details><summary>Delete Inventory , methods = [POST]</summary>
 <p>
 
 #### Users are able to delete an inventory from the database. 
