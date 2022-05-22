@@ -1,4 +1,4 @@
-# MyPantry
+# MyLogics - Inventory tracking web app
 
 Shopify Backend Intern Technical Challenge - Fall 2022
 
