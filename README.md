@@ -63,6 +63,20 @@ It also lets the user create an additional warehouse and add inventory to that s
 
 ## <a name="setup"></a>Set Up/ Installation
 
+### Run it with Replit
+
+<p><a href="https://replit.com/@mahafatima14/Shopifydevelopertechchallenge#main.py">
+  Replit Link
+</a>
+Run seed.py to populate the database before starting the demo
+</p>
+
+<p><a href="https://Shopifydevelopertechchallenge.mahafatima14.repl.co">
+  Demo
+</a>
+Run seed.py to populate the database before starting the demo
+</p>
+
 ### Prerequisites
 
 Please be sure to have Python 3.6 and PostgreSQL downloaded before you clone this repository.
